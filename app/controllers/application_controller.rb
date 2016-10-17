@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
-  auth = request.env['omniauth.auth']
-  render json: auth.to_json
+  def authentication_callback
+    auth = request.env['omniauth.auth']
+    render json: auth.to_json
+  end
 end
